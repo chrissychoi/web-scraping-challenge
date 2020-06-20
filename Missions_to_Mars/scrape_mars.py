@@ -16,7 +16,6 @@ def init_browser():
 def scrape_info():
     
     browser = init_browser()
-
     
     nasa_url ='https://mars.nasa.gov/news/'
     browser.visit(nasa_url)
@@ -29,9 +28,6 @@ def scrape_info():
     news_title = article.find("div", {"class":"content_title"}).text
     news_p = article.find("div",{"class":"article_teaser_body"}).text
 
-    
-
-
 
     ### 2 mars image
     jpl_url="https://www.jpl.nasa.gov/spaceimages/?search=&category=Mars"
@@ -40,16 +36,16 @@ def scrape_info():
 
     browser.find_by_id("full_image").first.click()
 
-
-
     for link in browser.find_by_css('img[class="fancybox-image"]'):
         featured_img = link['src']
+
 
     ### 2.1 downloading image
     response = requests.get(link['src'], stream=True)
     local_file = open('mars_image.jpg', 'wb')
     response.raw.decode_content = True
     shutil.copyfileobj(response.raw, local_file)
+
 
     ### 3. mars weather tweet
     browser.visit("https://twitter.com/marswxreport?lang=en")
@@ -65,12 +61,14 @@ def scrape_info():
         target_tweet = "Tweet unavailable at the moment, please try again later."
         marsTemp_tweet_clean = target_tweet
 
+
     ### 3.1 cleaning tweet
 
     marsTemp_tweet = {}
 
     marsTemp_tweet['featured_temp'] = marsTemp_tweet_clean
     
+
     ###4. mars fact and pandas
     browser.visit("https://space-facts.com/mars/")
     time.sleep(1)
@@ -85,7 +83,6 @@ def scrape_info():
     marsTable_to_html = marsTable_to_html.replace('</table>','')
     marsTable_to_html = marsTable_to_html.replace('<th>1</th>\n    </tr>\n    <tr>\n      <th>0</th>\n  ', '<th style="text-align:center;">Value</th>')
 
-    
 
     ###5. Mars Hemispheres
     browser.visit("https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars")
@@ -139,7 +136,6 @@ def scrape_info():
     dictionary={"title":hemi_name,"img_url":img_url}
     hemi_dict.append(dictionary)
     time.sleep(1)
-
    
     marsDict = {
         "featured_news": news_title,
