@@ -83,7 +83,7 @@ def scrape_info():
     marsTable_to_html = marsTable_df.to_html(classes='marsTable_to_html')
     marsTable_to_html = marsTable_to_html.replace('<table border="1" class="dataframe marsTable_to_html">','')
     marsTable_to_html = marsTable_to_html.replace('</table>','')
-    marsTable_to_html = marsTable_to_html.replace('<th>1</th>\n    </tr>\n    <tr>\n      <th>0</th>\n  ', '')
+    marsTable_to_html = marsTable_to_html.replace('<th>1</th>\n    </tr>\n    <tr>\n      <th>0</th>\n  ', '<th style="text-align:center;">Value</th>')
 
     
 

@@ -7,16 +7,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <!-- <link rel="stylesheet" href="main.css"> -->
+    <style>
+      img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      </style>
     <title>Mars Info Scraper</title>
 </head>
 
 
-<body style="background-color:grey;">
+<body style="background-color:white;">
     <div class="container mt-5 pb-2">
         <div class="row">
             <div class="col-12">
-                <div class="card" >
+                <div class="card bg-secondary" >
                     <div class=" card-body flex-fill border-light">
                         <h1 class="text-center"><br>Mission to Mars</h1>
                         <div class="text-center">
@@ -28,55 +34,68 @@
             </div>
         </div>
     </div>
+    <br>
+    <br>
     <div class="container-fluid">
         <div class = "row">
-            <div class = "col-12">
-            <img class="text-center" src="{{marsInfo.featured_img}}" alt="feature_img">
-            </div>
-        </div>
-        <div class = "row">
+          <br>
+          <br>
             <div class = "col-8">
-            <h2>Current Featured Mars News:</h2>
-            <h3><br>{{marsInfo.featured_news}}</h3>
-            <h3><br>{{marsInfo.featured_teaser}}</h3>
+            <h2 style="color:grey">Current Featured Mars News:</h2>
+            <h3 style="font-size:32px;"><br>{{marsInfo.featured_news}}</h3>
+            <h3 style="font-size:32px;"><br>{{marsInfo.featured_teaser}}</h3>
+            <br>
+            <br>
+            <h2 style="color:grey">Featured Mars Image:</h2>
+            <br>
+            <br>
+            <img src="{{marsInfo.featured_img}}" alt="feature_img">
             </div>
             <div class = "col-4">
-            <h2>Current Featured Mars Temperature:</h2>
-            <h3><br>{{marsInfo.featured_temp}}</h3>
-            <table border="1" class="dataframe marsTable_to_html"><br><br>
+            <h2 style="color:grey">Current Featured Mars Temperature:</h2>
+            <h3 style="font-size:18px;"><br>{{marsInfo.featured_temp}}</h3>
+            <br>
+            <br>
+            <table border="1" class="dataframe marsTable_to_html"><br>
+            <h4 style="color:grey">Mars Facts</h2>
+            <br>
             {{ marsInfo.mars_df|safe }}
             </table>
             </div>
         </div>
     </div>
+    <br>
+    <br>
     <div class="container-fluid">
 
-          <h1>Mars Hemispheres</h1>
+          <h1 style="text-align:center;color:grey;">Mars Hemispheres</h1>
           <br>
           <br>
   
           <div class="row">
             <div class="col-md-6">
               <img src="{{marsInfo.mars_hemi[0]['img_url']}}" alt="Mars Hemisphere1" style="width:400px;height:400px;border:0;">
-              <h3>{{marsInfo.mars_hemi[0]['title']}}</h3>
+              <h3 style="text-align:center;">{{marsInfo.mars_hemi[0]['title']}}</h3>
             </div>
             <div class="col-md-6">
               <img src="{{marsInfo.mars_hemi[1]['img_url']}}" alt="Mars Hemisphere2" style="width:400px;height:400px;border:0;">
-              <h3>{{marsInfo.mars_hemi[1]['title']}}</h3>
+              <h3 style="text-align:center;">{{marsInfo.mars_hemi[1]['title']}}</h3>
             </div>
           </div>
+          <br>
   
   
           <div class="row">
             <div class="col-md-6">
               <img src="{{marsInfo.mars_hemi[2]['img_url']}}" alt="Mars Hemisphere3" style="width:400px;height:400px;border:0;">
-              <h3>{{marsInfo.mars_hemi[2]['title']}}</h3>
+              <h3 style="text-align:center;">{{marsInfo.mars_hemi[2]['title']}}</h3>
             </div>
             <div class="col-md-6">
               <img src="{{marsInfo.mars_hemi[3]['img_url']}}" alt="Mars Hemisphere4" style="width:400px;height:400px;border:0;">
-              <h3>{{marsInfo.mars_hemi[3]['title']}}</h3>
+              <h3 style="text-align:center;">{{marsInfo.mars_hemi[3]['title']}}</h3>
             </div>
           </div>
+          <br>
   
       </div>
 
